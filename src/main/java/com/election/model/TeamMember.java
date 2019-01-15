@@ -14,10 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class TeamMember {
     @Id
     private String teamId;
-
     private Long participantId;
-
     private String participantIdentifier;
-
     boolean isCap;
 }
