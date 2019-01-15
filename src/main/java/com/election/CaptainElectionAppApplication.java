@@ -30,10 +30,9 @@ public class CaptainElectionAppApplication implements CommandLineRunner {
 		players.add(new TeamMember("3", 69L, "Player 3 fn3, ln3", false));
 		players.add(new TeamMember("4", 11L, "Player 4 fn4, ln4", false));
 		players.add(new TeamMember("5", 90L, "Player 5 fn5, ln5", false));
-		players.add(new TeamMember("6", 77L, "Player 6 fn6, ln6", true));
+		players.add(new TeamMember("6", 77L, "Player 6 fn6, ln6", false));
 		players.add(new TeamMember("7", 1L, "Player 7 fn7, ln7", false));
 
 		repository.saveAll(players);
-
 	}
 }

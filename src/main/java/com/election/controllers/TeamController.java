@@ -1,7 +1,8 @@
 package com.election.controllers;
 
+import com.election.intf.TeamService;
 import com.election.model.TeamMember;
-import com.election.services.TeamService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,10 +36,10 @@ public class TeamController {
         return ResponseEntity.ok().body(resp);
     }
 
-    @PostMapping("/team/{teamId}")
-    public ResponseEntity <?> reject
-            (@PathVariable String teamId) {
-        String resp = service.reject(teamId);
+    @PutMapping("/team/reject/{teamId}")
+    public ResponseEntity <?> rejectIfIsCap
+            (@PathVariable String teamId, @Valid @RequestBody TeamMember member) {
+        String resp = service.rejectIfIsCap(teamId, member);
         System.out.println("response: " + resp);
         return ResponseEntity.ok().body(resp);
     }
