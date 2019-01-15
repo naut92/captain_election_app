@@ -16,10 +16,10 @@ public class TeamController {
     @Autowired
     TeamService service;
 
-    @GetMapping("/team")
+    /*@GetMapping("/team")
     public List<TeamMember> findAllPlayers(){
         return service.findAll();
-    }
+    }*/
 
     @GetMapping("/team/{teamId}")
     public ResponseEntity<?> whoIsCap(@PathVariable String teamId){

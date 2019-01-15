@@ -13,7 +13,9 @@ import java.net.URL;
 public class CurlRequestPUT {
 
     public static void main(String[] args) throws IOException, JSONException {
+        //URL при голосовании:
         //String url = "http://localhost:8099/api/team/5";
+        //URL для отказа быть капитаном:
         String url = "http://localhost:8099/api/team/reject/5";
         URL object = new URL(url);
 
@@ -30,8 +32,10 @@ public class CurlRequestPUT {
         mem.put("teamId","5");
         mem.put("participantId", "90");
         mem.put("participantIdentifier", "Player 55 fn55, ln55");
-        //mem.put("cap", "true");
-        mem.put("cap", "false");
+        //при голосовании на капитана:
+        mem.put("cap", "true");
+        //при отказе быть капитаном:
+        //mem.put("cap", "false");
 
         System.out.println(mem);
 
@@ -39,6 +43,7 @@ public class CurlRequestPUT {
         wr.write(mem.toString());
 
         wr.flush();
+        wr.close();
 
         //display what returns the PUT request
         StringBuilder sb = new StringBuilder();
@@ -56,6 +61,6 @@ public class CurlRequestPUT {
             System.out.println(con.getResponseMessage());
         }
 
-        wr.close();
+        //wr.close();
     }
 }

@@ -11,7 +11,7 @@ public interface TeamService {
      * @param
      * @return          - List <TeamMember>
      */
-    List<TeamMember> findAll();
+    //List<TeamMember> findAll();
 
     /**
      * Find Player by Id and check is Player Captain or not

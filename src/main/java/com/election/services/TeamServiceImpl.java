@@ -16,9 +16,9 @@ public class TeamServiceImpl implements TeamService {
     @Autowired
     private TeamRepository repository;
 
-    public List<TeamMember> findAll(){
+    /*public List<TeamMember> findAll(){
         return repository.findAll();
-    }
+    }*/
 
     public String whoIsCap(String id){
         List<TeamMember> all = repository.findAll();
@@ -58,14 +58,11 @@ public class TeamServiceImpl implements TeamService {
 
     public String rejectIfIsCap(String id, TeamMember captain){
         Optional <TeamMember> member = repository.findTeamMemberByTeamId(id);
-        System.out.println("member " + member.get().getParticipantIdentifier());
-        if (member.isPresent()){
-            if (member.get().isCap()) {
-                captain.setCap(false);
-                repository.save(captain);
-                return "Теперь Вы опять не капитан!";
-            }
-        }
-        return "Если вы хотите быть капитаном, нажмите кнопку";
+        if (member.get().isCap()) {
+            System.out.println(member);
+            captain.setCap(false);
+            repository.save(captain);
+            return member.get().getParticipantIdentifier() + "Теперь Вы опять не капитан!";
+        } else return "Если вы хотите быть капитаном, нажмите кнопку";
     }
 }
