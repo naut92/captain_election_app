@@ -59,10 +59,9 @@ public class TeamServiceImpl implements TeamService {
     public String rejectIfIsCap(String id, TeamMember captain){
         Optional <TeamMember> member = repository.findTeamMemberByTeamId(id);
         if (member.get().isCap()) {
-            System.out.println(member);
             captain.setCap(false);
             repository.save(captain);
-            return member.get().getParticipantIdentifier() + "Теперь Вы опять не капитан!";
+            return member.get().getParticipantIdentifier() + " Теперь Вы опять не капитан!";
         } else return "Если вы хотите быть капитаном, нажмите кнопку";
     }
 }
