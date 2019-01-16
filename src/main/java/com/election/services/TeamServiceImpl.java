@@ -13,12 +13,16 @@ import java.util.Optional;
 @Service
 public class TeamServiceImpl implements TeamService {
 
-    @Autowired
-    private TeamRepository repository;
+    private final TeamRepository repository;
 
-    /*public List<TeamMember> findAll(){
+    public TeamServiceImpl(TeamRepository teamRepository) {
+        this.repository = teamRepository;
+    }
+
+    //For dev mode only:
+    public List<TeamMember> findAll(){
         return repository.findAll();
-    }*/
+    }
 
     public String whoIsCap(String id){
         List<TeamMember> all = repository.findAll();

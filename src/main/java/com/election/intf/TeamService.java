@@ -5,13 +5,15 @@ import com.election.model.TeamMember;
 import java.util.List;
 
 public interface TeamService {
+
+    //For dev mode only:
     /**
      * Find All Players
      *
      * @param
      * @return          - List <TeamMember>
      */
-    //List<TeamMember> findAll();
+    List<TeamMember> findAll();
 
     /**
      * Find Player by Id and check is Player Captain or not

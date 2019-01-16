@@ -3,7 +3,6 @@ package com.election.controllers;
 import com.election.intf.TeamService;
 import com.election.model.TeamMember;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,13 +12,18 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class TeamController {
-    @Autowired
-    TeamService service;
 
-    /*@GetMapping("/team")
+    private final TeamService service;
+
+    public TeamController(TeamService service) {
+        this.service = service;
+    }
+
+    //For dev mode only:
+    @GetMapping("/team")
     public List<TeamMember> findAllPlayers(){
         return service.findAll();
-    }*/
+    }
 
     @GetMapping("/team/{teamId}")
     public ResponseEntity<?> whoIsCap(@PathVariable String teamId){
